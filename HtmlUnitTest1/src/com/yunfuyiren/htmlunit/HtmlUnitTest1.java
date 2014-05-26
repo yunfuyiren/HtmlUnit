@@ -11,14 +11,15 @@ import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class HtmlUnitTest1 {
-	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException  
+	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException 
 	{
 		//the parameter pionted as the specific browser like chrome.
 		final WebClient webClient=new WebClient(BrowserVersion.CHROME);  
+		final HtmlPage page=webClient.getPage("http://www.yanyulin.info");
 		webClient.getOptions().setCssEnabled(false);
 		webClient.getOptions().setJavaScriptEnabled(false);
 		//get the content of the whole page  
-		final HtmlPage page=webClient.getPage("http://www.yanyulin.info");
+		
 //		System.out.println(page.asText());
 		webClient.closeAllWindows();
 		
