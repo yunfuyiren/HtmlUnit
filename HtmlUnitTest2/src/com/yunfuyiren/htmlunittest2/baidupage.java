@@ -37,18 +37,18 @@ public class baidupage {
 		final List<HtmlRadioButtonInput> titleButtons=form
 				.getRadioButtonsByName("tn");
 		titleButtons.get(0).setChecked(false);
-		titleButtons.get(1).setChecked(true);  //选中“仅在新闻的标题中”的radion button 
+		titleButtons.get(1).setChecked(true);  //閫変腑鈥滀粎鍦ㄦ柊闂荤殑鏍囬涓�鐨剅adion button 
 		HtmlHiddenInput bt=form.getInputByName("bt");
 		bt.setValueAttribute("1400428800");
 		HtmlHiddenInput et = form.getInputByName("et");
 		et.setValueAttribute("1400515200");
 		final HtmlPage page2 = button.click();  
 		String result=page2.asText();
-		System.out.println(result);
-		Pattern pattern=Pattern.compile("找到相关新闻 约(.*) 篇");
-		Matcher matcher = pattern.matcher(result); 
+//		System.out.println(result);
+		Pattern pattern=Pattern.compile("找到相关新闻(.*)篇");  // 一个Pattern是一个正则表达式经编译后的表现模式。 
+		Matcher matcher = pattern.matcher(result);   //一个Matcher对象是一个状态机器，它依据Pattern对象做为匹配模式对字符串展开匹配检查。
 		webclient.closeAllWindows();  
         if (matcher.find())  
-        	System.out.print(matcher.group(1));
+        	System.out.print(matcher.group(0));
 	}
 }
